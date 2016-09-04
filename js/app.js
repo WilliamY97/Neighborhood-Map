@@ -69,7 +69,9 @@ var ViewModel = function () {
 
         // Foursquare AJAX request
         $.ajax({
-            url: 'https://api.foursquare.com/v2/venues/' + plotitem.id() + '?client_id=GHWL1LOBUEUYBSOH2QZ2GBM1LTXGM4P1ZYZBIIFBS52ZUW5D&client_secret=VJNAIN3S5244IV5AZPINZZAE1XH5IPC1BD2NXESBXJ3WFJOZ&v=20130815',
+            url: 'https://api.foursquare.com/v2/venues/' + plotitem.id() + 
+            '?client_id=GHWL1LOBUEUYBSOH2QZ2GBM1LTXGM4P1ZYZBIIFBS52ZUW5D&client' +
+            '_secret=VJNAIN3S5244IV5AZPINZZAE1XH5IPC1BD2NXESBXJ3WFJOZ&v=20130815',
             dataType: "json",
             success: function (data) {
 
@@ -133,6 +135,8 @@ var ViewModel = function () {
         // Makes error from AJAX display on the marker form
         google.maps.event.addListener(marker, 'click', function () {
             InfoWindow.open(map, this);
+    map.setCenter(plotitem.marker.position);    // center the map on the marker's position
+    map.panBy( 0, -250 );    // pan down 250px to clear the list view
             plotitem.marker.setAnimation(google.maps.Animation.BOUNCE);
             setTimeout(function () {
                 plotitem.marker.setAnimation(null);

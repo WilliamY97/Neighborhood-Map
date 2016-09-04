@@ -20,4 +20,4 @@ A map of my home city Markham and local sushi restaurants in the area.
 
 ## Sources
 *Google Maps API - https://developers.google.com/maps/
-*Foursqaure API - https://developer.foursquare.com/
+*Foursquare API - https://developer.foursquare.com/
